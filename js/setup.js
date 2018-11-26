@@ -48,13 +48,15 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
-
-  similarListElement.appendChild(wizardElement);
+  return wizardElement;
 };
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < 4; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
+similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+
