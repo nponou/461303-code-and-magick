@@ -12,7 +12,7 @@ var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 var wizardCoatColots = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)',
   'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848']
+var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 function shuffle(arr) {
   var j;
@@ -126,7 +126,7 @@ wizardEyes.addEventListener('click', function () {
   shuffle(eyesColors);
   wizardEyes.style = 'fill: ' + eyesColors[1];
   eyesInput.value = eyesColors[1];
-})
+});
 
 wizardCoat.addEventListener('click', function () {
   shuffle(wizardCoatColots);
@@ -138,4 +138,4 @@ fireballColor.addEventListener('click', function () {
   shuffle(fireballColors);
   fireballColor.style.background = fireballColors[1];
   fireballInput.value = fireballColors[1];
-})
+});
