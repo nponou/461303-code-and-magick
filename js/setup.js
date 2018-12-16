@@ -85,7 +85,6 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-console.log(defaultCoordinates.y, defaultCoordinates.x);
 setupOpen.addEventListener('click', function () {
   openPopup();
   userDialog.style.left = defaultCoordinates.x;
