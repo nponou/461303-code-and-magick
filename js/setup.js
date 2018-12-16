@@ -62,6 +62,10 @@ similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
+var defaultCoordinates = {};
+var dialogStyle = getComputedStyle(userDialog);
+defaultCoordinates.x = dialogStyle.left;
+defaultCoordinates.y = dialogStyle.top;
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 var userNameInput = userDialog.querySelector('.setup-user-name');
@@ -81,13 +85,18 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
+console.log(defaultCoordinates.y, defaultCoordinates.x);
 setupOpen.addEventListener('click', function () {
   openPopup();
+  userDialog.style.left = defaultCoordinates.x;
+  userDialog.style.top = defaultCoordinates.y;
 });
 
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
+    userDialog.style.left = defaultCoordinates.x;
+    userDialog.style.top = defaultCoordinates.y;
   }
 });
 
