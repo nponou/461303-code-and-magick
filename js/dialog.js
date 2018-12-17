@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var dialogHandler = document.querySelector('.upload');
 var userDialog = document.querySelector('.setup');
 
