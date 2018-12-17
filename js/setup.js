@@ -62,31 +62,40 @@ similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
+var defaultCoordinates = {};
+var dialogStyle = getComputedStyle(userDialog);
+defaultCoordinates.x = dialogStyle.left;
+defaultCoordinates.y = dialogStyle.top;
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
-
+var userNameInput = userDialog.querySelector('.setup-user-name');
+var onPopupEscPress = function (evt) {
+  if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === userNameInput)) {
+    userDialog.classList.add('hidden');
+  }
+};
 
 var openPopup = function () {
   userDialog.classList.remove('hidden');
-
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      userDialog.classList.add('hidden');
-    }
-  });
+  document.addEventListener('keydown', onPopupEscPress);
 };
 
 var closePopup = function () {
   userDialog.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
 };
 
 setupOpen.addEventListener('click', function () {
   openPopup();
+  userDialog.style.left = defaultCoordinates.x;
+  userDialog.style.top = defaultCoordinates.y;
 });
 
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
+    userDialog.style.left = defaultCoordinates.x;
+    userDialog.style.top = defaultCoordinates.y;
   }
 });
 
@@ -100,8 +109,6 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
-
-var userNameInput = userDialog.querySelector('.setup-user-name');
 
 userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
@@ -139,3 +146,4 @@ fireballColor.addEventListener('click', function () {
   fireballColor.style.background = fireballColors[1];
   fireballInput.value = fireballColors[1];
 });
+
