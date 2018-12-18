@@ -3,13 +3,17 @@ var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
 var userDialog = document.querySelector('.setup');
-
+var dialogStyle = getComputedStyle(userDialog);
+var defaultCoordinates = {
+  x: dialogStyle.left,
+  y: dialogStyle.top
+};
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 
 
 var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === userNameInput)) {
+  if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === document.querySelector('.setup-user-name'))) {
     userDialog.classList.add('hidden');
   }
 };
