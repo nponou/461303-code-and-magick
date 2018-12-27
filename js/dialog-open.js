@@ -2,7 +2,7 @@
 (function () {
   var ESC_KEYCODE = 27;
   var ENTER_KEYCODE = 13;
-
+  var form = document.querySelector('.setup-wizard-form');
   var userDialog = document.querySelector('.setup');
   var dialogStyle = getComputedStyle(userDialog);
   var defaultCoordinates = {
@@ -12,7 +12,15 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = userDialog.querySelector('.setup-close');
 
-
+  var successSaveHandler = function (evt) {
+    window.backend.save(new FormData(form), function () {
+      userDialog.classList.add('hidden');
+    });
+    evt.preventDefault();
+  };
+  var errorSaveHandler = function () {};
+  form.addEventListener('submit', successSaveHandler);
+  form.addEventListener('error', errorSaveHandler);
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === document.querySelector('.setup-user-name'))) {
       userDialog.classList.add('hidden');
