@@ -21,6 +21,11 @@
 
   form.addEventListener('submit', successSaveHandler, function (errorMessage) {
     window.utility.errorHandler(errorMessage);
+  }, function () {
+    var errorMsg = document.querySelector('.error_message');
+    if (errorMsg) {
+      errorMsg.remove();
+    }
   });
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === document.querySelector('.setup-user-name'))) {

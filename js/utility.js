@@ -14,6 +14,7 @@
     },
     errorHandler: function (errorMessage) {
       var message = document.createElement('div');
+      message.classList.add('error_message');
       message.style = 'z-index: 100; margin: 0 auto; padding: 0; bacground-color: grey; text-align: center;';
       message.style.position = 'absulute';
       message.style.top = 0;
