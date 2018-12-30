@@ -9,10 +9,10 @@
         onSuccess(xhr.response);
       });
       xhr.addEventListener('error', function () {
-        onError();
+        onError(xhr);
       });
       xhr.addEventListener('timeout', function () {
-        onError('Запрос не успел выполнится за ' + xhr.timeout);
+        onError(xhr.response);
       });
       xhr.timeout = 10;
       xhr.open('POST', URL);

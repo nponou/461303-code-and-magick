@@ -18,9 +18,8 @@
     });
     evt.preventDefault();
   };
-  var errorSaveHandler = function () {};
-  form.addEventListener('submit', successSaveHandler);
-  form.addEventListener('error', errorSaveHandler);
+
+  form.addEventListener('submit', successSaveHandler, window.utility.errorHandler);
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === document.querySelector('.setup-user-name'))) {
       userDialog.classList.add('hidden');

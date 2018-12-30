@@ -13,10 +13,10 @@
   window.data = data;
 
   for (var i = 0; i < data.WIZARDS_QUANTITY; i++) {
-    window.shuffle(data.surnames);
-    window.shuffle(data.names);
-    window.shuffle(data.coatColors);
-    window.shuffle(data.eyesColors);
+    window.utility.shuffle(data.surnames);
+    window.utility.shuffle(data.names);
+    window.utility.shuffle(data.coatColors);
+    window.utility.shuffle(data.eyesColors);
     var mage = {
       name: data.names[i] + ' ' + data.surnames[i],
       coatColor: data.coatColors[i],
