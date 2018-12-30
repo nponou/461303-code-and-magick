@@ -19,7 +19,9 @@
     evt.preventDefault();
   };
 
-  form.addEventListener('submit', successSaveHandler, window.utility.errorHandler);
+  form.addEventListener('submit', successSaveHandler, function (errorMessage) {
+    window.utility.errorHandler(errorMessage);
+  });
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE && !(document.activeElement === document.querySelector('.setup-user-name'))) {
       userDialog.classList.add('hidden');

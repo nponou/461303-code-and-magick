@@ -14,7 +14,7 @@
       xhr.addEventListener('timeout', function () {
         onError(xhr.response);
       });
-      xhr.timeout = 10;
+      xhr.timeout = 100;
       xhr.open('POST', URL);
       xhr.send(data);
     },
