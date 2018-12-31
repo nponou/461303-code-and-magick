@@ -10,14 +10,16 @@
   var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
     return wizardElement;
   };
-
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < window.data.WIZARDS_QUANTITY; i++) {
-    fragment.appendChild(renderWizard(window.data.wizards[i]));
-  }
-  similarListElement.appendChild(fragment);
+  var successLoadHandler = function (wizards) {
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < 4; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+    similarListElement.appendChild(fragment);
+  };
+  window.backend.load(successLoadHandler, window.utility.errorHandler);
 })();

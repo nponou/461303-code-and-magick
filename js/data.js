@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-  var data = {
+  var Data = {
     names: ['Иван', 'Мария', 'Кристоф', 'Виктор', 'Люпита', 'Вашингтон', 'Хуан Себастьян'],
     surnames: ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'],
     coatColors: ['rgb(101, 137, 164)', 'rgb(241, 43, 107)',
@@ -8,20 +8,20 @@
     eyesColors: ['black', 'red', 'blue', 'yellow', 'green'],
     fireballColors: ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'],
     WIZARDS_QUANTITY: 4,
-    wizards: [],
+    Wizards: [],
   };
-  window.data = data;
+  window.data = Data;
 
-  for (var i = 0; i < data.WIZARDS_QUANTITY; i++) {
-    window.shuffle(data.surnames);
-    window.shuffle(data.names);
-    window.shuffle(data.coatColors);
-    window.shuffle(data.eyesColors);
-    var mage = {
-      name: data.names[i] + ' ' + data.surnames[i],
-      coatColor: data.coatColors[i],
-      eyesColor: data.eyesColors[i],
+  for (var i = 0; i < Data.WIZARDS_QUANTITY; i++) {
+    window.utility.shuffle(Data.surnames);
+    window.utility.shuffle(Data.names);
+    window.utility.shuffle(Data.coatColors);
+    window.utility.shuffle(Data.eyesColors);
+    var Mage = {
+      name: Data.names[i] + ' ' + Data.surnames[i],
+      coatColor: Data.coatColors[i],
+      eyesColor: Data.eyesColors[i],
     };
-    data.wizards.push(mage);
+    Data.Wizards.push(Mage);
   }
 })();
